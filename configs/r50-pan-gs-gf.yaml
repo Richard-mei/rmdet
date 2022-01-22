@@ -1,0 +1,101 @@
+model:
+  backbone:
+    [
+      [ -1, Conv, 1, [ 3, 64, 7, 2 ] ],
+      [ -1, nn.MaxPool2d, 1, [ 3, 2 ] ],
+      [ -1, Res_Stage, 3, [ 64, 256, 1, BottleNeck] ],  # args: [c_in, c_out, stride, block]  insert n to index 2.
+      [ -1, Res_Stage, 4, [ 256, 512, 2, BottleNeck] ],
+      [ -1, Res_Stage, 6, [ 512, 1024, 2, BottleNeck] ],
+      [ -1, Res_Stage, 3, [ 1024, 2048, 2, BottleNeck] ]
+    ]
+
+  neck:
+    [
+      [ -1, nn.Conv2d, 1, [ 2048, 256, 1, 1 ] ],        # 6  P5
+      [ [ -1, 4 ], FPNBlock, 1, [ 1024, 256, 1, 1 ] ],  # 7  P4
+      [ [ -1, 3 ], FPNBlock, 1, [ 512, 256, 1, 1 ] ],   # 8  P3
+      [ -1, nn.Conv2d, 1, [ 256, 256, 3, 1, 1 ] ],  # 9  F3
+      [8, ConvBN, 1, [256, 256, 3, 2, 1]],        # 10
+      [[-1, 7], Concat, 1, [1]],                 # 11 F4
+      [-1, nn.Conv2d, 1, [512, 256, 3, 1, 1]],      # 12 F4
+      [11, ConvBN, 1, [512, 256, 3, 2, 1]],      # 13
+      [[-1, 6], Concat, 1, [1]],                 # 14 F5
+      [-1, nn.Conv2d, 1, [512, 256, 3, 1, 1]],   # 15 F5
+    ]
+
+  head:
+    [
+      [[ 9, 12, 15], RetinaHead, 1, [ 256, 256, False, 4, 20, 9]]  # c1, c2, dbb, convs, nc, na
+    ]
+
+#optimizer:
+#  cfg: 'RMSprop'
+#  lr: 0.001
+#  alpha: 0.99
+#  eps: 0.00000008
+#  momentum: 0.9
+#  weight_decay: 0.0001
+optimizer:
+  cfg: 'SGD'
+  lr: 0.01
+  momentum: 0.9
+  weight_decay: 0.0001
+
+
+dataset:
+  base:
+    cfg: 'VOCDataset'
+#    CLASSES_NAME: [ "__background__ ","aeroplane","bicycle","bird","boat","bottle","bus","car","cat","chair","cow","diningtable","dog",
+#                    "horse","motorbike","person","pottedplant","sheep","sofa","train","tvmonitor" ]
+#    CLASSES_NAME: [ "__background__ ",'straight_strut','curved_strut','key_pieces','chain_buckle','spacer','metal_cover','hinge',
+#                   'plastic_cover','plastic_cap','curved_copper_nozzle','u-copper_tube','sen_button','connector',
+#                   'fixings','blade','shim','notched_ring_cap','plastic_inserts','metal_stud','long_magnetic_sheet',
+#                   'short_magnetic_sheet','rectangular_gasket','buckle','sub_button','u-shape_bridge']
+    CLASSES_NAME: [ "__background__ ",'straight_strut','curved_strut','key_pieces','chain_buckle','spacer','metal_cover','hinge',
+                    'plastic_cover','curved_copper_nozzle','u-copper_tube','connector','fixings','blade','shim',
+                    'notched_ring_cap','plastic_inserts','long_magnetic_sheet','short_magnetic_sheet',
+                    'rectangular_gasket','u-shape_bridge' ]
+    img_sizes: [512, 640]
+    root_dir: '/home/richard/Datasets/VOCdevkit_wp'
+  train:
+    batch_size: 4
+    is_train: True
+    set_: "[('2007', 'trainval'), ('2022', 'trainval')]"
+  eval:
+    batch_size: 2
+    is_train: False
+    set_: "[('2022', 'test')]"
+
+loss:
+  cfg: 'retina_loss'
+  cls_loss:
+    cfg: 'focal_loss'
+    alpha: 0.25
+    gamma: 2.0
+  reg_loss:
+    cfg: 'smooth_l1'
+#    cfg: 'CIoU'
+
+generator:
+  cfg: 'Anchor_Gen'
+  strides: [8, 16, 32]
+  ratios: [0.5, 1, 2]
+  scales: '[2 ** 0, 2 ** (1.0 / 3.0), 2 ** (2.0 / 3.0)]'
+  base_sizes: [16, 32, 64]
+  scale_major: True
+  #centers: None,
+  center_offset: 0.
+#generator:
+#  cfg: 'YOLOAnchorGen'
+#  strides: [8, 16, 32]
+#  base_sizes: '[[(10, 13), (16, 30), (33, 23)],
+#                [(30, 61), (62, 45), (59, 119)],
+#                [(116, 90), (156, 198), (373, 326)]]'
+hyp:
+  cls_pw: 1.0  # cls BCELoss positive_weight
+  obj_pw: 1.0  # obj BCELoss positive_weight
+  fl_gamma: 0.0  # focal loss gamma (efficientDet default gamma=1.5)
+
+
+
+cfg: 'r50-pan-gs-gf'
