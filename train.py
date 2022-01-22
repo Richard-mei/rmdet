@@ -71,12 +71,9 @@ elif opt.pretrained is not None:
     model.load_pretrained(torch.load(opt.pretrained), exclude=opt.exclude_layer)
 
 if torch.cuda.is_available():
-    # model = torch.nn.DataParallel(model).cuda()
-    model = model.cuda()
+    model = torch.nn.DataParallel(model).cuda()
 else:
     model = torch.nn.DataParallel(model)
-# dummy_input = torch.randn(1, 3, 480, 640).cuda()
-# torch.onnx.export(model, dummy_input, 'yolov5lite-g.onnx', opset_version=11)
 device = next(model.parameters()).device
 
 # Freeze module

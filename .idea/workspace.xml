@@ -2,141 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aba0b595-6891-457f-b5ec-a6ba598c2ae0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Vision/Anchor_generators/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Anchor_generators/generators.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Datasets/VOC0712.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Datasets/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Datasets/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Datasets/utils/data_augs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Losses/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Losses/losses.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Losses/retina_loss.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/FCOS.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/MobileNet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/ParNet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/Retinanet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/SSD.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/ShuffleNet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/VGG.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/YOLOv3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/YOLOv5.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/Attentions/A2Atttention.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/Attentions/AFT.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/Attentions/BAM.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/Attentions/CBAM.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/Attentions/CoAtNet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/Attentions/CoTAttention.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/Attentions/DANet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/Attentions/ECAAttention.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/Attentions/EMSA.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/Attentions/ExternalAttention.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/Attentions/HaloAttention.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/Attentions/MUSEAttention.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/Attentions/OutlookAttention.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/Attentions/PSA.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/Attentions/PolarizedSelfAttention.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/Attentions/SEAttention.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/Attentions/SGE.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/Attentions/SKAttention.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/Attentions/SelfAttention.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/Attentions/ShuffleAttention.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/Attentions/SimplifiedSelfAttention.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/Attentions/ViP.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/Attentions/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/BiFPN/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/BiFPN/layers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/config/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/config/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/config/constants.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/cotnet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/cupy_layers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/cupy_layers/aggregation_refpad.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/cupy_layers/aggregation_zeropad.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/cupy_layers/aggregation_zeropad_dilate.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/cupy_layers/aggregation_zeropad_mix.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/cupy_layers/aggregation_zeropad_mix_merge.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/cupy_layers/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/activations.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/activations_jit.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/activations_me.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/adaptive_avgmax_pool.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/anti_aliasing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/blur_pool.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/cbam.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/classifier.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/cond_conv2d.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/conv2d_same.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/conv_bn_act.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/create_act.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/create_attn.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/create_conv2d.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/create_norm_act.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/drop.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/eca.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/evo_norm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/helpers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/inplace_abn.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/kerv2d.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/median_pool.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/mixed_conv2d.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/mlp.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/norm_act.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/padding.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/patch_embed.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/pool2d_same.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/se.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/selective_kernel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/separable_conv.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/shiftlution.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/space_to_depth.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/split_attn.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/split_batchnorm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/std_conv.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/tbconv.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/test_time_pool.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/CoT/layers/weight_init.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/DBB/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/DBB/dbb_transforms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/general.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/tiny_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Models/common.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Optimizers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/Optimizers/optimizer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/utils/builders.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/utils/collect_env.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/utils/dict_collect.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/utils/downloads.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/utils/file_io.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/utils/general.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/utils/globalVars.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/utils/logger.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/utils/map_computer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/utils/metrics.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/utils/plots.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/utils/registry.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/utils/tensorboard_analyze.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/utils/torch_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vision/utils/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/configs/r50-bifpn.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/configs/r50-pan-gs-gf.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/configs/rep-bifpn-gs-gf.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/configs/rep-fpn-gs-gf.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/configs/retina-pan-lite-g.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/configs/retinanet-fpn-r18.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/configs/retinanet-fpn-r50.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/detect.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trt_detect.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/val.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/train.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vision/Models/Modules/YOLOv3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Vision/Models/Modules/YOLOv3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vision/Models/Modules/YOLOv5.py" beforeDir="false" afterPath="$PROJECT_DIR$/Vision/Models/Modules/YOLOv5.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/r50-bifpn.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/r50-bifpn.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/r50-pan-gs-gf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/r50-pan-gs-gf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/rep-bifpn-gs-gf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/rep-bifpn-gs-gf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/rep-fpn-gs-gf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/rep-fpn-gs-gf.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/retina-pan-lite-g.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/retina-pan-lite-g.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/retinanet-fpn-r18.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/retinanet-fpn-r18.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/retinanet-fpn-r50.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/retinanet-fpn-r50.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
