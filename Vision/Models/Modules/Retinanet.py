@@ -1,3 +1,5 @@
+import torch
+
 from .general import *
 import Vision.utils.globalVars as glv
 from Vision.utils import multi_apply
@@ -14,7 +16,8 @@ class BottleNeck(nn.Module):
         if glv.get_value('USE_DBB_FLAG', default_value=False):
             self.conv = nn.Sequential(*[
                 DiverseBranchBlock(c1, c_, kernel_size=1, nonlinear=nn.ReLU(inplace=True), groups=1),
-                DiverseBranchBlock(c_, c_, kernel_size=3, stride=s, padding=1, groups=groups, nonlinear=nn.ReLU(inplace=True)),
+                DiverseBranchBlock(c_, c_, kernel_size=3, stride=s, padding=1, groups=groups,
+                                   nonlinear=nn.ReLU(inplace=True)),
                 DiverseBranchBlock(c_, c2, kernel_size=1, groups=1)
             ])
             self.ds = DiverseBranchBlock(c1, c2, kernel_size=1, stride=s) if c1 != c2 or s != 1 else nn.Identity()
@@ -49,7 +52,8 @@ class BasicBlock(nn.Module):
         c_ = c2 // expansion
         if glv.get_value('USE_DBB_FLAG', default_value=False):
             self.conv = nn.Sequential(*[
-                DiverseBranchBlock(c1, c_, kernel_size=3, stride=s, padding=1, nonlinear=nn.ReLU(inplace=True) if act else None),
+                DiverseBranchBlock(c1, c_, kernel_size=3, stride=s, padding=1,
+                                   nonlinear=nn.ReLU(inplace=True) if act else None),
                 DiverseBranchBlock(c_, c2, kernel_size=3, stride=1, padding=1)
             ])
             self.ds = DiverseBranchBlock(c1, c2, kernel_size=1, stride=s) if c1 != c2 or s != 1 else nn.Identity()
@@ -90,12 +94,52 @@ class BasicBlock(nn.Module):
 #         x = self.act(torch.add(self.conv(x), self.ds(x)))
 #         return x
 
+def featuremapTOmask(featuremap, na=9):
+    B, C, H, W = featuremap.shape
+    heat_map = torch.clamp_min(featuremap, 0)
+    heat_map = torch.mean(heat_map, dim=1)
+    max = heat_map.reshape(B, H * W).max(dim=1).values
+    heat_map /= max.view(B, 1, 1)
+
+    # # heatmap vis
+    # heatmap = heat_map.data.cpu().numpy()
+    # heatmap = heatmap.squeeze(0)
+    # heatmap = np.uint8(255 * heatmap)
+    # heatmap = cv2.applyColorMap(heatmap, cv2.COLORMAP_JET)
+    # # heatmap = cv2.resize(heatmap, (640, 480))
+    # cv2.imshow('hm', heatmap)
+    # cv2.waitKey(0)
+
+    a = torch.ones_like(heat_map)
+    b = torch.ones_like(heat_map) * -1
+    mask = torch.where(heat_map > heat_map.mean(), a, b)
+
+    # # mask vis
+    # heat_map = mask.data.cpu().numpy()
+    # heat_map = heat_map.squeeze(0)
+    # heatmap = np.uint8(255 * heat_map)
+    # heatmap = cv2.applyColorMap(heatmap, cv2.COLORMAP_JET)
+    # cv2.imshow('mask',heatmap)
+    # cv2.waitKey(0)
+
+    # mask = mask.unsqueeze(1)
+    mask = mask.unsqueeze(1).repeat(1, na, 1, 1)
+    # mask = mask.permute(0, 2, 3, 1).contiguous()
+    mask = mask.permute(0, 2, 3, 1).contiguous().view(B, H * W * na, -1)
+
+    # end_t=time.time()
+    # cost_t=1000*(end_t-start_t)
+    # print("===>success processing mask, cost time %.2f ms"%cost_t)
+
+    return mask
+
 
 class Res_Stage(nn.Module):
     def __init__(self, c1, c2, n, s, block, groups=1, act=True):
         super(Res_Stage, self).__init__()
         self.block = nn.ModuleList([
-            block(c1, c2, s, act=act, groups=1) if i == 0 else block(c2, c2, 1, act=act, groups=groups) for i in range(n)
+            block(c1, c2, s, act=act, groups=1) if i == 0 else block(c2, c2, 1, act=act, groups=groups) for i in
+            range(n)
             # BottleNeck(c1, c2, s, act=act) if i == 0 else BottleNeck(c2, c2, 1, act=act) for i in range(n)
         ])
         self.block = nn.Sequential(*self.block)
@@ -105,9 +149,10 @@ class Res_Stage(nn.Module):
 
 
 class RetinaHead(nn.Module):
-    def __init__(self, c1, c2, use_dbb, stacked_convs=2, nc=20, na=9):
+    def __init__(self, c1, c2, use_gs=False, stacked_convs=2, nc=20, na=9):
         super(RetinaHead, self).__init__()
         self.na = na
+        self.use_gs = use_gs
         # if glv.get_value('USE_DBB_FLAG', default_value=False) and use_dbb:
         #     self.cls_conv = nn.ModuleList([
         #         DiverseBranchBlock(c1, c2, 3, 1, 1, nonlinear=nn.ReLU()) if i == 0 else
@@ -130,8 +175,10 @@ class RetinaHead(nn.Module):
         cls_branch = []
         reg_branch = []
         for i in range(stacked_convs):
-            cls_branch.append(nn.Conv2d(c1 if i == 0 else c2, c2, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=True))
-            reg_branch.append(nn.Conv2d(c1 if i == 0 else c2, c2, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=True))
+            cls_branch.append(
+                nn.Conv2d(c1 if i == 0 else c2, c2, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=True))
+            reg_branch.append(
+                nn.Conv2d(c1 if i == 0 else c2, c2, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=True))
             cls_branch.append(nn.GroupNorm(32, c2))
             reg_branch.append(nn.GroupNorm(32, c2))
             cls_branch.append(nn.ReLU(inplace=True))
@@ -143,18 +190,29 @@ class RetinaHead(nn.Module):
         nn.init.constant_(self.cls.bias, -math.log((1 - 0.01) / 0.01))
 
     def forward(self, x):
-        clss, bboxs = multi_apply(self.forward_once, x)  # F3, F4, F5
+        clss, bboxs, mask = multi_apply(self.forward_once, x)  # F3, F4, F5
         clss = torch.cat(clss, dim=1)
         bboxs = torch.cat(bboxs, dim=1)
-        preds = torch.cat([clss, bboxs], dim=-1)
-        return preds
+        mask = torch.cat(mask, dim=1) if self.use_gs else None
+
+        return {'cls_score': clss, 'reg_pred': bboxs, 'gs_mask': mask}
+        # # preds = torch.cat([clss, bboxs, mask], dim=-1)
+        # if self.use_gs:
+        #     mask = torch.cat(mask, dim=1)
+        #     return torch.cat([clss, bboxs, mask], dim=-1)
+        # else:
+        #     return torch.cat([clss, bboxs], dim=-1)
 
     def forward_once(self, x):
+        if self.use_gs:
+            mask = featuremapTOmask(x, self.na)
+        else:
+            mask = None
         bs, _, ny, nx = x.shape  # x(bs,255,20,20) to x(bs,3,20,20,85)
         cls = self.cls(self.cls_conv(x)).permute(0, 2, 3, 1).contiguous().view(bs, ny * nx * self.na, -1)
         reg = self.reg(self.reg_conv(x)).permute(0, 2, 3, 1).contiguous().view(bs, ny * nx * self.na, -1)
 
-        return cls, reg
+        return cls, reg, mask
 
 
 class Detections(nn.Module):
@@ -467,5 +525,3 @@ class ClipBoxes(nn.Module):
         batch_boxes[..., [0, 2]] = batch_boxes[..., [0, 2]].clamp_(min=0, max=w - 1)
         batch_boxes[..., [1, 3]] = batch_boxes[..., [1, 3]].clamp_(min=0, max=h - 1)
         return batch_boxes
-
-

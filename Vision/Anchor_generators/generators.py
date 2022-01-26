@@ -429,6 +429,64 @@ class Anchor_Gen:
         # then (0, 1), (0, 2), ...
         return all_anchors
 
+    def valid_flags(self, featmap_sizes, pad_shape, device='cuda'):
+        """Generate valid flags of anchors in multiple feature levels.
+
+        Args:
+            featmap_sizes (list(tuple)): List of feature map sizes in
+                multiple feature levels.
+            pad_shape (tuple): The padded shape of the image.
+            device (str): Device where the anchors will be put on.
+
+        Return:
+            list(torch.Tensor): Valid flags of anchors in multiple levels.
+        """
+        assert self.num_levels == len(featmap_sizes)
+        multi_level_flags = []
+        for i in range(self.num_levels):
+            anchor_stride = self.strides[i]
+            feat_h, feat_w = featmap_sizes[i]
+            h, w = pad_shape[:2]
+            valid_feat_h = min(int(np.ceil(h / anchor_stride[1])), feat_h)
+            valid_feat_w = min(int(np.ceil(w / anchor_stride[0])), feat_w)
+            flags = self.single_level_valid_flags((feat_h, feat_w),
+                                                  (valid_feat_h, valid_feat_w),
+                                                  self.num_base_anchors[i],
+                                                  device=device)
+            multi_level_flags.append(flags)
+        return multi_level_flags
+
+    def single_level_valid_flags(self,
+                                 featmap_size,
+                                 valid_size,
+                                 num_base_anchors,
+                                 device='cuda'):
+        """Generate the valid flags of anchor in a single feature map.
+
+        Args:
+            featmap_size (tuple[int]): The size of feature maps.
+            valid_size (tuple[int]): The valid size of the feature maps.
+            num_base_anchors (int): The number of base anchors.
+            device (str, optional): Device where the flags will be put on.
+                Defaults to 'cuda'.
+
+        Returns:
+            torch.Tensor: The valid flags of each anchor in a single level \
+                feature map.
+        """
+        feat_h, feat_w = featmap_size
+        valid_h, valid_w = valid_size
+        assert valid_h <= feat_h and valid_w <= feat_w
+        valid_x = torch.zeros(feat_w, dtype=torch.bool, device=device)
+        valid_y = torch.zeros(feat_h, dtype=torch.bool, device=device)
+        valid_x[:valid_w] = 1
+        valid_y[:valid_h] = 1
+        valid_xx, valid_yy = self._meshgrid(valid_x, valid_y)
+        valid = valid_xx & valid_yy
+        valid = valid[:, None].expand(valid.size(0),
+                                      num_base_anchors).contiguous().view(-1)
+        return valid
+
 
 @GENERATORS.register_module()
 class YOLOAnchorGen(Anchor_Gen):

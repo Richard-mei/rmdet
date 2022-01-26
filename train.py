@@ -11,7 +11,7 @@ import torch.utils.data
 from tensorboardX import SummaryWriter
 from torch import optim
 from torchvision import transforms
-
+from tqdm import tqdm
 from Vision import Model, file, build_dataset, Augmenter, Normalizer, collate_fn, Resizer, build_optimizer, \
     collect_env, get_root_logger, ComputeLoss, build_generator, get_by_key, model_info, \
     map_compute, initialize_weights, tensorboard_event_vis
@@ -22,8 +22,8 @@ parser.add_argument('--resume_from', type=str, default=None)
 parser.add_argument('--pretrained', type=str, default=None)
 parser.add_argument('--exclude_layer', type=list, default=['fc.weight', 'fc.bias'],
                     help='layers weights to del,default is repvgg.')
-parser.add_argument('--epochs', type=int, default=30, help='number of total epochs')
-parser.add_argument('--best_map', type=int, default=0.9)
+parser.add_argument('--epochs', type=int, default=100, help='number of total epochs')
+parser.add_argument('--best_map', type=int, default=0.3)
 parser.add_argument('--num_workers', type=int, default=8)
 parser.add_argument('--n_gpu', type=str, default='0', help='GPU device ids')
 parser.add_argument('--log_iter', type=int, default=20)
@@ -107,7 +107,7 @@ optimizer = build_optimizer(config.get('optimizer'), params=model.parameters())
 # scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, patience=2, verbose=True)
 # scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=5, eta_min=0.001)
 # scheduler = optim.lr_scheduler.CosineAnnealingWarmRestarts(optimizer, T_0=5, T_mult=2)
-scheduler = optim.lr_scheduler.MultiStepLR(optimizer, milestones=[13, 22], gamma=0.1)
+scheduler = optim.lr_scheduler.MultiStepLR(optimizer, milestones=[30, 60], gamma=0.1)
 
 compute_loss = ComputeLoss(config['loss'], config['generator'])
 generater = build_generator(config['generator'])
@@ -153,15 +153,16 @@ for epoch in range(opt.epochs):
         del loss
 
     #  eval loss
-    with torch.no_grad():
-        for batch_step, data in enumerate(eval_loader):
-            _steps = len(train_loader) * epoch + batch_step
-            images, annots = data['img'].to(device), data['annot'].to(device)
-            anchors = generater.grid_anchors(images)
-            preds = model.forward(images, visualize=False)
-            losses_dict = compute_loss(preds, annots, anchors)
-            for k, v in losses_dict.items():
-                writer.add_scalar(f'eval_{k}', v, global_step=_steps)
+    # with torch.no_grad():
+    #     for batch_step, data in tqdm(enumerate(eval_loader), 'eval...'):
+    #         _steps = len(eval_loader) * epoch + batch_step
+    #         images, annots = data['img'].to(device), data['annot'].to(device)
+    #         anchors = generater.grid_anchors(images)
+    #         preds = model.forward(images, visualize=False)
+    #         losses_dict = compute_loss(preds, annots, anchors)
+    #         for k, v in losses_dict.items():
+    #             writer.add_scalar(f'eval_{k}', v, global_step=_steps)
+
     # torch.save(model.state_dict(), f'{logpath}/epoch_{epoch+1}.pth')
     # model_fused = copy.deepcopy(model)
     # for module in model_fused.modules():
@@ -178,19 +179,16 @@ for epoch in range(opt.epochs):
         model.training = False
         model.eval()
         map50 = map_compute(model, eval_loader, logger, iou_thresh=0.5, conf_thresh=0.01, nc=len(names[1:]), plots=True,
-                            save_dir=logpath,
+                            save_dir=logpath, loss_computer=compute_loss, writer=writer, epoch=epoch,
                             generater=generater, class_name=names, multi_label=False, agnostic=False, retur=True)
 
-        # all_ap, mAP = mAP_compute(model, eval_loader, iou_thresh=0.5,
-        #                           classes=get_by_key(config, 'CLASSES_NAME'), generator=generater)
-        # logger.info(dash_line)
-        # logger.info(pd.DataFrame(all_ap, columns=['Class', 'AP']))
-        # logger.info(dash_line)
         if map50 > best_map:
             best_map = map50
-            torch.save(model.state_dict(), '{}/epoch_{}_{:.3f}.pth'.format(logpath, epoch + 1, map50))
+            # torch.save(model.state_dict(), '{}/epoch_{}_{:.3f}.pth'.format(logpath, epoch + 1, map50))
+            torch.save(model.state_dict(), '{}/best.pth'.format(logpath))
+        torch.save(model.state_dict(), '{}/last.pth'.format(logpath))
 
 writer.export_scalars_to_json(osp.join(logpath, f'{timestamp}_scalars.json'))
 model.eval()
-tensorboard_event_vis()(glob.glob(f'{logpath}/events.out*')[0], 'total_loss', f'{logpath}/total_loss.txt',
-                        f'{logpath}/total_loss', 'upper right')
+# tensorboard_event_vis()(glob.glob(f'{logpath}/events.out*')[0], 'total_loss', f'{logpath}/total_loss.txt',
+#                         f'{logpath}/total_loss', 'upper right')

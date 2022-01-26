@@ -2,18 +2,266 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aba0b595-6891-457f-b5ec-a6ba598c2ae0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/train.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BF_ORBmatch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BF_SIFTmatch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vision/Losses/gfocal_loss.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vision/Models/Modules/GFL.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vision/utils/cv_keypoints.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vision/utils/cv_matcher.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/configs/r50-bifpn-gf.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/211.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/212.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/221.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/225.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_140227/20220123_140227.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_140227/20220123_140227.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_140227/events.out.tfevents.1642917747.richard-NB_20220123_140227" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_140445/20220123_140445.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_140445/20220123_140445.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_140445/events.out.tfevents.1642917885.richard-NB_20220123_140445" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_140524/20220123_140524.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_140524/20220123_140524.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_140524/events.out.tfevents.1642917924.richard-NB_20220123_140524" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_140657/20220123_140657.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_140657/20220123_140657.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_140657/events.out.tfevents.1642918017.richard-NB_20220123_140657" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_140942/20220123_140942.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_140942/20220123_140942.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_140942/events.out.tfevents.1642918182.richard-NB_20220123_140942" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_141025/20220123_141025.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_141025/20220123_141025.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_141025/events.out.tfevents.1642918225.richard-NB_20220123_141025" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_141246/20220123_141246.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_141246/20220123_141246.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_141246/events.out.tfevents.1642918366.richard-NB_20220123_141246" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_141323/20220123_141323.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_141323/20220123_141323.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_141323/events.out.tfevents.1642918403.richard-NB_20220123_141323" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_141422/20220123_141422.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_141422/20220123_141422.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_141422/events.out.tfevents.1642918463.richard-NB_20220123_141422" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_141434/20220123_141434.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_141434/20220123_141434.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_141434/events.out.tfevents.1642918474.richard-NB_20220123_141434" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_141504/20220123_141504.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_141504/20220123_141504.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_141504/events.out.tfevents.1642918504.richard-NB_20220123_141504" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_141711/20220123_141711.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_141711/20220123_141711.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_141711/events.out.tfevents.1642918631.richard-NB_20220123_141711" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_142718/20220123_142718.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_142718/20220123_142718.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_142718/events.out.tfevents.1642919238.richard-NB_20220123_142718" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_143003/20220123_143003.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_143003/20220123_143003.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_143003/events.out.tfevents.1642919403.richard-NB_20220123_143003" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_144048/20220123_144048.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_144048/20220123_144048.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_144048/events.out.tfevents.1642920048.richard-NB_20220123_144048" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_144705/20220123_144705.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_144705/20220123_144705.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_144705/events.out.tfevents.1642920425.richard-NB_20220123_144705" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_144853/20220123_144853.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_144853/20220123_144853.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_144853/events.out.tfevents.1642920533.richard-NB_20220123_144853" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_144937/20220123_144937.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_144937/20220123_144937.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_144937/events.out.tfevents.1642920577.richard-NB_20220123_144937" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_144954/20220123_144954.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_144954/20220123_144954.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_144954/events.out.tfevents.1642920594.richard-NB_20220123_144954" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_145045/20220123_145045.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_145045/20220123_145045.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_145045/events.out.tfevents.1642920645.richard-NB_20220123_145045" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_145319/20220123_145319.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_145319/20220123_145319.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_145319/events.out.tfevents.1642920799.richard-NB_20220123_145319" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_145527/20220123_145527.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_145527/20220123_145527.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_145527/events.out.tfevents.1642920927.richard-NB_20220123_145527" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_145633/20220123_145633.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_145633/20220123_145633.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_145633/events.out.tfevents.1642920993.richard-NB_20220123_145633" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_145741/20220123_145741.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_145741/20220123_145741.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_145741/F1_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_145741/PR_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_145741/P_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_145741/R_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_145741/events.out.tfevents.1642921061.richard-NB_20220123_145741" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_145741/last.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_160127/20220123_160127.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_160127/20220123_160127.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_160127/events.out.tfevents.1642924887.richard-NB_20220123_160127" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_160514/20220123_160514.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_160514/20220123_160514.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220123_160514/events.out.tfevents.1642925114.richard-NB_20220123_160514" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_211352/20220124_211352.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_211352/20220124_211352.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_211352/events.out.tfevents.1643030032.richard-NB_20220124_211352" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_211415/20220124_211415.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_211415/20220124_211415.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_211415/events.out.tfevents.1643030055.richard-NB_20220124_211415" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_211509/20220124_211509.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_211509/20220124_211509.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_211509/events.out.tfevents.1643030109.richard-NB_20220124_211509" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_211634/20220124_211634.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_211634/20220124_211634.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_211634/events.out.tfevents.1643030194.richard-NB_20220124_211634" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_211725/20220124_211725.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_211725/20220124_211725.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_211725/events.out.tfevents.1643030245.richard-NB_20220124_211725" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_211924/20220124_211924.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_211924/20220124_211924.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_211924/events.out.tfevents.1643030364.richard-NB_20220124_211924" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_212012/20220124_212012.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_212012/20220124_212012.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_212012/events.out.tfevents.1643030412.richard-NB_20220124_212012" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_212111/20220124_212111.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_212111/20220124_212111.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_212111/events.out.tfevents.1643030471.richard-NB_20220124_212111" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_212233/20220124_212233.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_212233/20220124_212233.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_212233/events.out.tfevents.1643030553.richard-NB_20220124_212233" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_212322/20220124_212322.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_212322/20220124_212322.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_212322/events.out.tfevents.1643030602.richard-NB_20220124_212322" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_212359/20220124_212359.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_212359/20220124_212359.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_212359/events.out.tfevents.1643030639.richard-NB_20220124_212359" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_213826/20220124_213826.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_213826/20220124_213826.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_213826/events.out.tfevents.1643031506.richard-NB_20220124_213826" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_213909/20220124_213909.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_213909/20220124_213909.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_213909/events.out.tfevents.1643031549.richard-NB_20220124_213909" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_213935/20220124_213935.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_213935/20220124_213935.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_213935/events.out.tfevents.1643031575.richard-NB_20220124_213935" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_214110/20220124_214110.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_214110/20220124_214110.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_214110/events.out.tfevents.1643031670.richard-NB_20220124_214110" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_214202/20220124_214202.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_214202/20220124_214202.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_214202/events.out.tfevents.1643031722.richard-NB_20220124_214202" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_214802/20220124_214802.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_214802/20220124_214802.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_214802/events.out.tfevents.1643032082.richard-NB_20220124_214802" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_215046/20220124_215046.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_215046/20220124_215046.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_215046/F1_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_215046/PR_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_215046/P_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_215046/R_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_215046/events.out.tfevents.1643032246.richard-NB_20220124_215046" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_215046/last.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_215824/20220124_215824.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_215824/20220124_215824.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_215824/events.out.tfevents.1643032704.richard-NB_20220124_215824" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_215919/20220124_215919.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_215919/20220124_215919.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_215919/events.out.tfevents.1643032760.richard-NB_20220124_215919" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_220215/20220124_220215.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_220215/20220124_220215.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_220215/events.out.tfevents.1643032935.richard-NB_20220124_220215" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_220426/20220124_220426.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_220426/20220124_220426.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_220426/events.out.tfevents.1643033066.richard-NB_20220124_220426" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_220628/20220124_220628.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_220628/20220124_220628.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_220628/events.out.tfevents.1643033188.richard-NB_20220124_220628" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_220835/20220124_220835.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_220835/20220124_220835.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_220835/events.out.tfevents.1643033315.richard-NB_20220124_220835" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_220946/20220124_220946.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_220946/20220124_220946.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_220946/events.out.tfevents.1643033386.richard-NB_20220124_220946" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_222139/20220124_222139.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_222139/20220124_222139.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_222139/F1_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_222139/PR_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_222139/P_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_222139/R_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_222139/events.out.tfevents.1643034099.richard-NB_20220124_222139" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_222139/last.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_223152/20220124_223152.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_223152/20220124_223152.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_223152/events.out.tfevents.1643034712.richard-NB_20220124_223152" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_223232/20220124_223232.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_223232/20220124_223232.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_223232/F1_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_223232/PR_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_223232/P_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_223232/R_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_223232/best.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_223232/events.out.tfevents.1643034752.richard-NB_20220124_223232" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/r50-bifpn/vocdataset/20220124_223232/last.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220123_222239/20220123_222239.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220123_222239/20220123_222239.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220123_222239/F1_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220123_222239/PR_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220123_222239/P_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220123_222239/R_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220123_222239/best.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220123_222239/events.out.tfevents.1642947759.richard-NB_20220123_222239" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220123_222239/last.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_171102/20220126_171102.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_171102/20220126_171102.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_171102/events.out.tfevents.1643188262.richard-NB_20220126_171102" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_171200/20220126_171200.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_171200/20220126_171200.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_171200/events.out.tfevents.1643188320.richard-NB_20220126_171200" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_171308/20220126_171308.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_171308/20220126_171308.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_171308/events.out.tfevents.1643188388.richard-NB_20220126_171308" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_171352/20220126_171352.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_171352/20220126_171352.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_171352/events.out.tfevents.1643188432.richard-NB_20220126_171352" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_171510/20220126_171510.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_171510/20220126_171510.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_171510/events.out.tfevents.1643188510.richard-NB_20220126_171510" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_171527/20220126_171527.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_171527/20220126_171527.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_171527/events.out.tfevents.1643188527.richard-NB_20220126_171527" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_172216/20220126_172216.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_172216/20220126_172216.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_172216/F1_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_172216/PR_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_172216/P_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_172216/R_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_172216/best.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_172216/events.out.tfevents.1643188936.richard-NB_20220126_172216" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_172216/last.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_180717/20220126_180717.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_180717/20220126_180717.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_180717/events.out.tfevents.1643191637.richard-NB_20220126_180717" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_180819/20220126_180819.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_180819/20220126_180819.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_180819/F1_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_180819/PR_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_180819/P_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_180819/R_curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_180819/best.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_180819/events.out.tfevents.1643191699.richard-NB_20220126_180819" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runs/rep-bifpn-gs-gf/vocdataset/20220126_180819/last.pth" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vision/Models/Modules/YOLOv3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Vision/Models/Modules/YOLOv3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vision/Models/Modules/YOLOv5.py" beforeDir="false" afterPath="$PROJECT_DIR$/Vision/Models/Modules/YOLOv5.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vision/Anchor_generators/generators.py" beforeDir="false" afterPath="$PROJECT_DIR$/Vision/Anchor_generators/generators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vision/Datasets/utils/data_augs.py" beforeDir="false" afterPath="$PROJECT_DIR$/Vision/Datasets/utils/data_augs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vision/Losses/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Vision/Losses/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vision/Losses/retina_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/Vision/Losses/retina_loss.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vision/Models/Modules/Retinanet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Vision/Models/Modules/Retinanet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vision/Models/Modules/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Vision/Models/Modules/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vision/Models/Modules/general/general.py" beforeDir="false" afterPath="$PROJECT_DIR$/Vision/Models/Modules/general/general.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vision/utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Vision/utils/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vision/utils/map_computer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Vision/utils/map_computer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vision/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Vision/utils/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configs/r50-bifpn.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/r50-bifpn.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configs/r50-pan-gs-gf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/r50-pan-gs-gf.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configs/rep-bifpn-gs-gf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/rep-bifpn-gs-gf.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configs/rep-fpn-gs-gf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/rep-fpn-gs-gf.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/retina-pan-lite-g.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/retina-pan-lite-g.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/retinanet-fpn-r18.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/retinanet-fpn-r18.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/retinanet-fpn-r50.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/retinanet-fpn-r50.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train.sh" beforeDir="false" afterPath="$PROJECT_DIR$/train.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/val.py" beforeDir="false" afterPath="$PROJECT_DIR$/val.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,16 +290,16 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/runs" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/runs" />
+      <recent name="$PROJECT_DIR$/configs" />
+      <recent name="$PROJECT_DIR$/Vision/Losses" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Vision/utils" />
-      <recent name="$PROJECT_DIR$/Vision/Optimizers" />
-      <recent name="$PROJECT_DIR$/Vision/Models/Modules" />
-      <recent name="$PROJECT_DIR$/Vision/Models" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

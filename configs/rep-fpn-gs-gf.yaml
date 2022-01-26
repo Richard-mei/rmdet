@@ -49,16 +49,16 @@ dataset:
 #                    'plastic_cover','curved_copper_nozzle','u-copper_tube','connector','fixings','blade','shim',
 #                    'notched_ring_cap','plastic_inserts','long_magnetic_sheet','short_magnetic_sheet',
 #                    'rectangular_gasket','u-shape_bridge' ]
-    img_sizes: [480, 640]
-    root_dir: '/home/richard/Datasets/VOCdevkit_wp'
+    img_sizes: [512, 640]
+    root_dir: '/home/richard/Datasets/VOCdevkit'
   train:
     batch_size: 4
     is_train: True
-    set_: "[('2022', 'trainval')]"
+    set_: "[('2007', 'trainval'), ('2012', 'trainval')]"
   eval:
     batch_size: 2
     is_train: False
-    set_: "[('2022', 'test')]"
+    set_: "[('2007', 'test')]"
 
 loss:
   cfg: 'retina_loss'

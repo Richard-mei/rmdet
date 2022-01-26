@@ -234,22 +234,29 @@ class Resizer(object):
         self.img_sizes = img_sizes
 
     def __call__(self, sample):
-        min_side, max_side = self.img_sizes
+        h_side, w_side = self.img_sizes
         image, annots = sample['img'], sample['annot']
         height, width, _ = image.shape  # (480, 640, 3)
-        smallest_side = min(width, height)
-        largest_side = max(width, height)
-        scale = min_side / smallest_side
-        if largest_side * scale > max_side:
-            scale = max_side / largest_side
+        scale = h_side / height
+        if width * scale > w_side:
+            scale = w_side / width
+        # smallest_side = min(width, height)  # 短边
+        # largest_side = max(width, height)  # 长边
+        # scale = min_side / smallest_side  # 缩放比例
+        # # scale = max_side / largest_side  # 保证最大边等于右限
+        # if largest_side * scale > max_side:
+        #     scale = max_side / largest_side
         nw, nh = int(scale * width), int(scale * height)
-        image_resized = cv2.resize(image, (nw, nh))
-        if nh > nw:
-            image_paded = np.zeros(shape=[max_side, min_side, 3], dtype=np.uint8)
-            image_paded[:nh, :nw, :] = image_resized
-        else:
-            image_paded = np.zeros(shape=[min_side, max_side, 3], dtype=np.uint8)
-            image_paded[:nh, :nw, :] = image_resized
+        assert (nw <= w_side) and (nh <= w_side)
+        image_resized = cv2.resize(image, (nw, nh))  # nh, nw ,3
+        # if nh > nw:
+        #     image_paded = np.zeros(shape=[max_side, min_side, 3], dtype=np.uint8)
+        #     image_paded[:nh, :nw, :] = image_resized
+        # else:
+        #     image_paded = np.zeros(shape=[min_side, max_side, 3], dtype=np.uint8)
+        #     image_paded[:nh, :nw, :] = image_resized
+        image_paded = np.zeros(shape=[h_side, w_side, 3], dtype=np.uint8)
+        image_paded[:nh, :nw, :] = image_resized
         # if min_side == max_side:
         #     pad_w = math.ceil(min_side / 32) * 32 - nw
         #     pad_h = math.ceil(min_side / 32) * 32 - nh

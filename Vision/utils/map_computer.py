@@ -370,6 +370,9 @@ def map_compute(model,
                 nc=20,
                 plots=False,
                 save_dir=None,
+                loss_computer=None,
+                writer=None,
+                epoch=None,
                 generater=None,
                 class_name=None,
                 multi_label=False,
@@ -400,7 +403,14 @@ def map_compute(model,
             t2 = time_sync()
             dt[0] += t2 - t1
             pred_ = model(images, visualize=False)
-            cls_preds, reg_preds = pred_[..., 0:-4], pred_[..., -4:]
+            _steps = len(data_loader) * epoch + batch_step
+            losses_dict = loss_computer(pred_, annots, anchors)
+            for k, v in losses_dict.items():
+                writer.add_scalar(f'eval_{k}', v, global_step=_steps)
+
+            # cls_preds, reg_preds = pred_[..., 0:-4], pred_[..., -4:]
+            cls_preds, reg_preds, mask = pred_['cls_score'], pred_['reg_pred'], pred_['gs_mask']
+
             # for i in range(nb):
             #    clspred = cls_preds[i]
             #    print(max(torch.max(clspred, dim=1).values))

@@ -136,7 +136,7 @@ with torch.no_grad():
         dt[0] += t2 - t1
         anchors = generater.grid_anchors(images)  # anchors format: [xyxy]
         preds = model.forward(images, visualize=False)
-        cls_preds, reg_preds = preds[..., 0:20], preds[..., 20:24]
+        cls_preds, reg_preds = preds[..., 0:-4], preds[..., -4:]
         # cls_preds, reg_preds = model.forward(images, visualize=False)
         cls_preds = cls_preds.sigmoid_()
 
@@ -191,13 +191,7 @@ with torch.no_grad():
 
     if len(stats) and stats[0].any():
         p, r, ap, f1, ap_class = ap_per_class(*stats, plot=plots, save_dir=save_dir,
-                                              names=['straight_strut', 'curved_strut', 'key_pieces', 'chain_buckle',
-                                                     'spacer', 'metal_cover', 'hinge',
-                                                     'plastic_cover', 'curved_copper_nozzle', 'u-copper_tube',
-                                                     'connector', 'fixings', 'blade', 'shim',
-                                                     'notched_ring_cap', 'plastic_inserts', 'long_magnetic_sheet',
-                                                     'short_magnetic_sheet',
-                                                     'rectangular_gasket', 'u-shape_bridge'])
+                                              names=names[1:])
         pd_data = []
         for i in range(ap_class.shape[0]):
             pd_data.append({'Names': f'{names[ap_class[i]]}',

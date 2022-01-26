@@ -3,7 +3,7 @@ from .builders import GENERATORS, DATASETS, LOSSES, DETECTORS, OPTIMIZERS, \
 from .globalVars import *
 from .plots import feature_visualization
 from .torch_utils import *
-from .utils import multi_apply
+from .utils import multi_apply, weighted_loss
 from .file_io import *
 from .collect_env import *
 from .dict_collect import *
